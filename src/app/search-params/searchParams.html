@@ -1,0 +1,91 @@
+<section class="container">
+  <main>
+    <md-card>
+      <md-card-title>Product images</md-card-title>
+      <md-card-content>
+        <ul class="products">
+          <li class="img-item-main"><img src="https://www.band-aid.com/sites/bandaid_us/files/styles/tout_image/public/header-page-1-5.png?itok=UUreTcxq" alt="product"></li>
+          <li><img src="https://www.band-aid.com/sites/bandaid_us/files/styles/tout_image/public/header-page-1-5.png?itok=UUreTcxq" alt="product"></li>
+          <li><img src="https://www.band-aid.com/sites/bandaid_us/files/styles/tout_image/public/header-page-1-5.png?itok=UUreTcxq" alt="product"></li>
+          <li><img src="https://www.band-aid.com/sites/bandaid_us/files/styles/tout_image/public/header-page-1-5.png?itok=UUreTcxq" alt="product"></li>
+          <li><img src="https://www.band-aid.com/sites/bandaid_us/files/styles/tout_image/public/header-page-1-5.png?itok=UUreTcxq" alt="product"></li>
+        </ul>
+      </md-card-content>
+    </md-card>
+
+  </main>
+  <aside class="search-form-fields">
+    <md-card>
+      <md-card-title>Product Details</md-card-title>
+      <md-card-content>
+        <form>
+          <md-input-container>
+            <input mdInput placeholder="Product Category / E-class"
+                   type="text"
+                   required id="category"
+                   [(ngModel)]="product.category"
+                   name="Product Category / E-class">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Product name"
+                   type="text"
+                   [(ngModel)]="product.name"
+                   required id="name"
+                   name="Product name">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="SKU"
+                   type="text"
+                   [(ngModel)]="product.sku"
+                   required id="sku"
+                   name="SKU">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput
+                   placeholder="OEM Part Number"
+                   type="text"
+                   [(ngModel)]="product.oem"
+                   required id="oem"
+                   name="OEM Part Number">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput
+                   placeholder="Brand"
+                   type="text"
+                   [(ngModel)]="product.brand"
+                   required
+                   id="brand"
+                   name="Brand">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput
+                   placeholder="Search Query"
+                   type="text"
+                   value="{{product.name}} {{product.brand}} {{product.oem}} {{product.sku}}"
+                   name="SearchQuery">
+          </md-input-container>
+        </form>
+
+        <button md-raised-button type="submit" (click)="getSearchQuery(); searchImages(searchQuery);">Search Images</button>
+
+      </md-card-content>
+    </md-card>
+
+
+  </aside>
+</section>
+
+<section class="container ">
+  <article class="search-results">
+    <h2>Suggested product images</h2>
+    <section class="images">
+      <li *ngFor="let url of imageUrls"><img src="{{url}}" alt="product"></li>
+    </section>
+
+  </article>
+</section>
